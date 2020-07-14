@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron" id="main-container">
+            <h1 class="text-left">Friend Finder</h1>
+            <hr>
+            <div class="text-left">
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Your data</h4>
+            </div>
+            <div class="card-body">
+                <ul id="tableList" class="list-group"></ul>
+            </div>
+        </div>
+
+        <h3>What is your name</h3>
+        <form class="name">
+            <input id="nameInput"> </input>
+        </form>
+
+
+
+        <h3>How much to you like cats</h3>
+        <form>
+            <input id="question-one" type="number"></input>
+        </form>
+
+
+        <h3>You prefer to live in a city</h3>
+        <form>
+            <input id="question-two" type="number"></input>
+        </form>
+
+
+        <h3>You like the beach</h3>
+        <form class="question-three">
+            <input id="question-three" type="number"></input>
+        </form>
+
+
+        <h3>You are an extrovert</h3>
+        <form class="name">
+            <input id="question-four" type="number"></input>
+        </form>
+
+
+        <h3>When disagree you strongly voice your opinion</h3>
+        <form class="name">
+            <input id="question-five" type="number"></input>
+        </form>
+
+        <button class="submit">submit</button>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+
+
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
+
+         userData = {
+            name: $("#nameInput").val().trim(),
+            score: [questionOne = $("#question-one").val().trim(),
+            questionTwo = $("#question-two").val().trim(),
+            questionThree = $("#question-three").val().trim(),
+            questionFour = $("#question-four").val().trim(),
+            questionFive = $("#question-five").val().trim()]
+
+        };
+
+        friendsPostAPI()
+
+
+
+
+        console.log(userData);
+
+
+        function friendsPostAPI() {
+
+            $.post("/api/friends", userData,
+                function (data) {
+
+                    // If a table is available... tell user they are booked.
+                    if (data) {
+                        alert("data inputted");
+                        runUserDataQuery()
+                    }
+
+                    // If a table is available... tell user they on the waiting list.
+                    else {
+                        alert("data cannot be inputted");
+                    }
+
+
+
+
+
+
+                });
+
+        }
+        function runUserDataQuery() {
+            $.ajax({ url: "/api/friends", method: "GET" })
+                .then(function (userData) {
+                    console.log(userData);
+                    console.log("------------------------------------");
+
+
+                    for (var i = 0; i < userData.length; i++) {
+                        var userList = $("#userList");
+                        var listItem = $("<li class='list-group-item mt-4'>");
+
+                        listItem.append(
+                            $("<h2>").text("Table #" + (i + 1)),
+                            $("<hr>"),
+                            $("<h2>").text("Name: " + userData[i].name),
+                            $("<h2>").text("Question 1: " + userData[i].questionOne),
+                            $("<h2>").text("Question 2: " + userData[i].questionTwo),
+                            $("<h2>").text("Question 3: " + userData[i].questionThree),
+                            $("<h2>").text("Question 4: " + userData[i].questionFour),
+                            $("<h2>").text("Question 5: " + userData[i].questionFive),
+                        );
+
+                        tableList.append(listItem);
+                    }
+
+                });
+        }
+    });
+
+
+</script>
