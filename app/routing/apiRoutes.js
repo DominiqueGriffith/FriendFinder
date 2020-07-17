@@ -1,7 +1,7 @@
 // Pull in required dependencies
 var path = require('path');
 
-var friendData = require("../app/data/friends");
+var friendData = require("../data/friends"); 
 // var userData = require("../public/survey.html");
 
 
@@ -22,7 +22,7 @@ module.exports = function (app) {
         // Holds the user input object (req.body)
         var newUserData = req.body;
 
-        var userResponses = newUserData.scores;
+        var userResponses = newUserData.score;
 
         // Compute best friend match
         var matchName = '';
@@ -35,7 +35,7 @@ module.exports = function (app) {
             var differenes = 0;
             for (var j = 0; j < userResponses.length; j++) {
                 // looping through all of the friends data scores [i] for each question [j] subtracting by the user response for each question [j]
-                differenes += Math.abs(friendData[i].scores[j] - userResponses[j]);
+                differenes += Math.abs(friendData[i].score[j] - userResponses[j]);
             }
             if (differenes < totalDifference) {
 
@@ -45,7 +45,7 @@ module.exports = function (app) {
             }
         }
         // Adding the new user to the mix
-        freindData.push(newUserData);
+        friendData.push(newUserData);
         // Send appropriate response
 		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
     });

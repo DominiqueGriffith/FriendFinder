@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 
 // Routes for app
-require(path.join(__dirname, "./routing/apiRoutes"))(app);
-require(path.join(__dirname, "./routing/htmlRoutes"))(app);
+require(path.join(__dirname, "./app/routing/apiRoutes"))(app);
+require(path.join(__dirname, "./app/routing/htmlRoutes"))(app);
 
 
 

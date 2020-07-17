@@ -232,18 +232,18 @@
 
 <script type="text/javascript">
 
-// $(document).ready(function() {
-// 			$('select').material_select();
+    $(document).ready(function() {
+    			$('select').material_select();
 
-// 			$('.modal').modal({
-// 				dismissible: false, // Modal can be dismissed by clicking outside of the modal
-// 				opacity: .5, // Opacity of modal background
-// 				inDuration: 300, // Transition in duration
-// 				outDuration: 200, // Transition out duration
-// 				startingTop: '4%', // Starting top style attribute
-// 				endingTop: '10%' // Ending top style attribute
-// 			});
-// 		});
+    			$('.modal').modal({
+    				dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    				opacity: .5, // Opacity of modal background
+    				inDuration: 300, // Transition in duration
+    				outDuration: 200, // Transition out duration
+    				startingTop: '4%', // Starting top style attribute
+    				endingTop: '10%' // Ending top style attribute
+    			});
+    		});
 
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
@@ -252,22 +252,22 @@
             name: $("#nameInput").val().trim(),
             photo: $('#userPhoto').val().trim(),
             score: [
-                questionOne = $("#question-one").val().trim(),
-                questionTwo = $("#question-two").val().trim(),
-                questionThree = $("#question-three").val().trim(),
-                questionFour = $("#question-four").val().trim(),
-                questionFive = $("#question-five").val().trim(),
-                questionSix = $("#question-six").val().trim(),
-                questionSeven = $("#question-seven").val().trim(),
-                questionEight = $("#question-eight").val().trim(),
-                questionNine = $("#question-nine").val().trim(),
-                questionTen = $("#question-ten").val().trim()
+                $("#question-one").val().trim(),
+                $("#question-two").val().trim(),
+                $("#question-three").val().trim(),
+                $("#question-four").val().trim(),
+                $("#question-five").val().trim(),
+                $("#question-six").val().trim(),
+                $("#question-seven").val().trim(),
+                $("#question-eight").val().trim(),
+                $("#question-nine").val().trim(),
+                $("#question-ten").val().trim()
             ]
 
         };
 
         // friendsPostAPI()
-			console.log(JSON.stringify(newUserData));
+        console.log(JSON.stringify(newUserData));
 
 
 
@@ -283,7 +283,7 @@
                 $('#userMatch').html(data.matchName);
                 $("#userMatchImage").attr("src", data.matchImage);
 
-                $('#modal1').modal('open');
+                $('#modal1').modal('show');
                 // if (data) {
                 //     alert("data inputted");
                 //     // runUserDataQuery()
@@ -295,7 +295,7 @@
                 // }
 
 
-            console.log("this is req.body " + req.body);
+                console.log("this is req.body " + req.body);
 
 
             });
