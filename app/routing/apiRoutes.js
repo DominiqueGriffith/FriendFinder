@@ -27,12 +27,13 @@ module.exports = function (app) {
         // Compute best friend match
         var matchName = '';
         var matchImage = '';
-        var totalDifference = 10000; // Make the initial value big for comparison
+        var totalDifference = 10000; // The initial value big for comparison
 
         // Examine all existing friends in the list
         for (var i = 0; i < friendData.length; i++) {
             // Compute differenes for each question
             var differenes = 0;
+            // loop for each user response of each question
             for (var j = 0; j < userResponses.length; j++) {
                 // looping through all of the friends data scores [i] for each question [j] subtracting by the user response for each question [j]
                 differenes += Math.abs(friendData[i].score[j] - userResponses[j]);

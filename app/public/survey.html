@@ -232,19 +232,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function() {
-    			$('select').material_select();
-
-    			$('.modal').modal({
-    				dismissible: false, // Modal can be dismissed by clicking outside of the modal
-    				opacity: .5, // Opacity of modal background
-    				inDuration: 300, // Transition in duration
-    				outDuration: 200, // Transition out duration
-    				startingTop: '4%', // Starting top style attribute
-    				endingTop: '10%' // Ending top style attribute
-    			});
-    		});
-
+// button eventclick for survey
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
 
@@ -272,10 +260,6 @@
 
 
 
-        // console.log(newUserData);
-
-
-        // function friendsPostAPI() {
 
         $.post("/api/friends", newUserData)
             .done(function (data) {
@@ -284,16 +268,7 @@
                 $("#userMatchImage").attr("src", data.matchImage);
 
                 $('#modal1').modal('show');
-                // if (data) {
-                //     alert("data inputted");
-                //     // runUserDataQuery()
-                // }
-
-                // // If a table is available... tell user they on the waiting list.
-                // else {
-                //     alert("data cannot be inputted");
-                // }
-
+       
 
                 console.log("this is req.body " + req.body);
 
