@@ -22,133 +22,286 @@
             </div>
         </div>
 
-        <div class="card">
+
+
+        <div class="card mt-4">
             <div class="card-header">
                 <h4>Your data</h4>
+                <a href="/surveyResults" class="btn btn-danger btn-lg"><span class="fa fa-plus"></span>
+                    Results</button></a>
             </div>
             <div class="card-body">
-                <ul id="tableList" class="list-group"></ul>
+                <ul id="userList" class="list-group"></ul>
             </div>
         </div>
 
-        <h3>What is your name</h3>
+        <h3>What is your name (required)</h3>
         <form class="name">
-            <input id="nameInput"> </input>
+            <input id="nameInput" placeholder="Put Your Name Here">
         </form>
+        <h3>Link to Photo Image (required)</h3>
+        <input type="text" placeholder="Link to Photo Here" id="userPhoto" class="form-control">
+
+        <!-- Survey Questions -->
+
+        <div class="input-field col s12">
+            <h3>Question 1</h3>
+            <h5>How much to you like cats.</h5>
+            <select id="question-one">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 2</h3>
+            <h5>You prefer to live in a city.</h5>
+            <select id="question-two">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 3</h3>
+            <h5>You like the beach.</h5>
+            <select id="question-three">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 4</h3>
+            <h5>Your favorite food is pizza.</h5>
+            <select id="question-four">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 5</h3>
+            <h5>You love to research topics you aren't familiar with.</h5>
+            <select id="question-five">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 6</h3>
+            <h5>You love to travel.</h5>
+            <select id="question-six">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 7</h3>
+            <h5>Learning foreign languages is easy for you.</h5>
+            <select id="question-seven">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 8</h3>
+            <h5>You hate hosting parties.</h5>
+            <select id="question-eight">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 9</h3>
+            <h5>You woud describe youreself as empathetic.</h5>
+            <select id="question-nine">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="input-field col s12">
+            <h3>Question 10</h3>
+            <h5>You enjoy country music.</h5>
+            <select id="question-ten">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
 
 
 
-        <h3>How much to you like cats</h3>
+        <!-- <h3>How much to you like cats (please select a number from 1 throuh 5)</h3>
         <form>
             <input id="question-one" type="number"></input>
-        </form>
+        </form> -->
 
 
-        <h3>You prefer to live in a city</h3>
+        <!-- <h3>You prefer to live in a city (please select a number from 1 throuh 5)</h3>
         <form>
             <input id="question-two" type="number"></input>
         </form>
 
 
-        <h3>You like the beach</h3>
+        <h3>You like the beach (please select a number from 1 throuh 5)</h3>
         <form class="question-three">
             <input id="question-three" type="number"></input>
         </form>
 
 
-        <h3>You are an extrovert</h3>
+        <h3>You are an extrovert (please select a number from 1 throuh 5)</h3>
         <form class="name">
             <input id="question-four" type="number"></input>
         </form>
 
 
-        <h3>When disagree you strongly voice your opinion</h3>
+        <h3>When disagree you strongly voice your opinion (please select a number from 1 throuh 5)</h3>
         <form class="name">
             <input id="question-five" type="number"></input>
-        </form>
+        </form> -->
+        <br>
+        <div>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit Responses
 
-        <button class="submit">submit</button>
+            </button>
+        </div>
+
+        <!-- !-- Modal Showing Friend Match -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Your Match</h4>
+                <div class="divider"></div>
+                <h5 id="userMatch"></h5>
+                <img id="userMatchImage" class="materialboxed" width="650" src="">
+            </div>
+            <div class="modal-footer">
+                <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+            </div>
+        </div>
 
 </body>
+
+
 
 </html>
 
 <script type="text/javascript">
 
+// $(document).ready(function() {
+// 			$('select').material_select();
 
+// 			$('.modal').modal({
+// 				dismissible: false, // Modal can be dismissed by clicking outside of the modal
+// 				opacity: .5, // Opacity of modal background
+// 				inDuration: 300, // Transition in duration
+// 				outDuration: 200, // Transition out duration
+// 				startingTop: '4%', // Starting top style attribute
+// 				endingTop: '10%' // Ending top style attribute
+// 			});
+// 		});
 
-    $(".submit").on("click", function (event) {
+    $("#submitButton").on("click", function (event) {
         event.preventDefault();
 
-         userData = {
+        var newUserData = {
             name: $("#nameInput").val().trim(),
-            score: [questionOne = $("#question-one").val().trim(),
-            questionTwo = $("#question-two").val().trim(),
-            questionThree = $("#question-three").val().trim(),
-            questionFour = $("#question-four").val().trim(),
-            questionFive = $("#question-five").val().trim()]
+            photo: $('#userPhoto').val().trim(),
+            score: [
+                questionOne = $("#question-one").val().trim(),
+                questionTwo = $("#question-two").val().trim(),
+                questionThree = $("#question-three").val().trim(),
+                questionFour = $("#question-four").val().trim(),
+                questionFive = $("#question-five").val().trim(),
+                questionSix = $("#question-six").val().trim(),
+                questionSeven = $("#question-seven").val().trim(),
+                questionEight = $("#question-eight").val().trim(),
+                questionNine = $("#question-nine").val().trim(),
+                questionTen = $("#question-ten").val().trim()
+            ]
 
         };
 
-        friendsPostAPI()
+        // friendsPostAPI()
+			console.log(JSON.stringify(newUserData));
 
 
 
 
-        console.log(userData);
+        // console.log(newUserData);
 
 
-        function friendsPostAPI() {
+        // function friendsPostAPI() {
 
-            $.post("/api/friends", userData,
-                function (data) {
+        $.post("/api/friends", newUserData)
+            .done(function (data) {
 
-                    // If a table is available... tell user they are booked.
-                    if (data) {
-                        alert("data inputted");
-                        runUserDataQuery()
-                    }
+                $('#userMatch').html(data.matchName);
+                $("#userMatchImage").attr("src", data.matchImage);
 
-                    // If a table is available... tell user they on the waiting list.
-                    else {
-                        alert("data cannot be inputted");
-                    }
+                $('#modal1').modal('open');
+                // if (data) {
+                //     alert("data inputted");
+                //     // runUserDataQuery()
+                // }
 
-
-
-
-
-
-                });
-
-        }
-        function runUserDataQuery() {
-            $.ajax({ url: "/api/friends", method: "GET" })
-                .then(function (userData) {
-                    console.log(userData);
-                    console.log("------------------------------------");
+                // // If a table is available... tell user they on the waiting list.
+                // else {
+                //     alert("data cannot be inputted");
+                // }
 
 
-                    for (var i = 0; i < userData.length; i++) {
-                        var userList = $("#userList");
-                        var listItem = $("<li class='list-group-item mt-4'>");
+            console.log("this is req.body " + req.body);
 
-                        listItem.append(
-                            $("<h2>").text("Table #" + (i + 1)),
-                            $("<hr>"),
-                            $("<h2>").text("Name: " + userData[i].name),
-                            $("<h2>").text("Question 1: " + userData[i].questionOne),
-                            $("<h2>").text("Question 2: " + userData[i].questionTwo),
-                            $("<h2>").text("Question 3: " + userData[i].questionThree),
-                            $("<h2>").text("Question 4: " + userData[i].questionFour),
-                            $("<h2>").text("Question 5: " + userData[i].questionFive),
-                        );
 
-                        tableList.append(listItem);
-                    }
+            });
 
-                });
-        }
+        // }
+
     });
 
 

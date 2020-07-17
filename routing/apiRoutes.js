@@ -1,4 +1,7 @@
-var userData = require("../app/data/friends");
+// Pull in required dependencies
+var path = require('path');
+
+var friendData = require("../app/data/friends");
 // var userData = require("../public/survey.html");
 
 
@@ -6,40 +9,73 @@ module.exports = function (app) {
 
 
     app.get("/api/friends", function (req, res) {
-        res.json(userData);
+        res.json(friendData);
 
     });
 
 
     app.post("/api/friends", function (req, res) {
-        userData.push(req.body);
-        res.json(true);
+        //   userData.push(req.body);
+        // res.json(true);
+        // alert("it works");
 
-        var friendsDataTotalOne = math.abs(friendsData.score[0] - userData.questionOne[0]);
+        // Holds the user input object (req.body)
+        var newUserData = req.body;
 
-        var friendsDataTotalTwo = math.abs(friendsData.score[1] - userData.questionTwo[1]);
+        var userResponses = newUserData.scores;
 
-        var friendsDataTotalThree = math.abs(friendsData.score[2] - userData.questionThree[2]);
+        // Compute best friend match
+        var matchName = '';
+        var matchImage = '';
+        var totalDifference = 10000; // Make the initial value big for comparison
 
-        var friendsDataTotalFour = math.abs(friendsData.score[3] - userData.questionFour[3]);
+        // Examine all existing friends in the list
+        for (var i = 0; i < friendData.length; i++) {
+            // Compute differenes for each question
+            var differenes = 0;
+            for (var j = 0; j < userResponses.length; j++) {
+                // looping through all of the friends data scores [i] for each question [j] subtracting by the user response for each question [j]
+                differenes += Math.abs(friendData[i].scores[j] - userResponses[j]);
+            }
+            if (differenes < totalDifference) {
 
-        var friendsDataTotalFive = math.abs(friendsData.score[4] - userData.questionFour[4]);
-        
-
-//       var  friendsDataTotal = friendsData.score[0] + friendsData.score[1] + friendsData.score[2] + friendsData.score[3] + friendsData.score[4];
-
-//    var userDataTotal = questionOne[0] + questionTwo[1] + questionThree[2] + questionfour[3] + questionfive[4];
-
-   var totalDifference = friendsDataTotalOne + friendsDataTotalTwo +friendsDataTotalThree +friendsDataTotalFour + friendsDataTotalFive
-
-if (totalDifference < 3){
-    alert("You have a match");
-
-}
-
-else{
-    alert("no match");
-}
+                totalDifference = differenes;
+                matchName = friendData[i].name;
+                matchImage = friendData[i].photo;
+            }
+        }
+        // Adding the new user to the mix
+        freindData.push(newUserData);
+        // Send appropriate response
+		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
     });
 
-}
+
+
+};
+
+        // var friendsDataTotalOne = math.abs(userData[0].score[0] - userData[1].questionOne[0]);
+
+        // var friendsDataTotalTwo = math.abs(userData[0].score[1] - userData[1].questionTwo[1]);
+
+        // var friendsDataTotalThree = math.abs(userData[0].score[2] - userData[1].questionThree[2]);
+
+        // var friendsDataTotalFour = math.abs(userData[0].score[3] - userData[1].questionFour[3]);
+
+        // var friendsDataTotalFive = math.abs(userData[0].score[4] - userData[1].questionFour[4]);
+
+
+//     don't bring back maybe  var  friendsDataTotal = friendsData.score[0] + friendsData.score[1] + friendsData.score[2] + friendsData.score[3] + friendsData.score[4];
+
+//   don't bring back maybe   var userDataTotal = questionOne[0] + questionTwo[1] + questionThree[2] + questionfour[3] + questionfive[4];
+
+//    var totalDifference = friendsDataTotalOne + friendsDataTotalTwo +friendsDataTotalThree +friendsDataTotalFour + friendsDataTotalFive
+
+// if (totalDifference < 3){
+//     alert("You have a match");
+
+// }
+
+// else{
+//     alert("no match");
+// }
