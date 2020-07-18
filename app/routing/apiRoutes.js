@@ -24,14 +24,14 @@ module.exports = function (app) {
 
         var userResponses = newUserData.score;
 
-        // Compute best friend match
+        // Create best friend match
         var matchName = '';
         var matchImage = '';
-        var totalDifference = 10000; // The initial value big for comparison
+        var totalDifference = 1000; 
 
         // Examine all existing friends in the list
         for (var i = 0; i < friendData.length; i++) {
-            // Compute differenes for each question
+            // Create differenes for each question
             var differenes = 0;
             // loop for each user response of each question
             for (var j = 0; j < userResponses.length; j++) {
@@ -47,7 +47,6 @@ module.exports = function (app) {
         }
         // Adding the new user to the mix
         friendData.push(newUserData);
-        // Send appropriate response
 		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
     });
 
